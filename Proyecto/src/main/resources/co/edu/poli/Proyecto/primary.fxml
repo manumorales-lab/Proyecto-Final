@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="co.edu.poli.Proyecto.controlador.AlimentoController" 
+      spacing="20" style="-fx-padding: 25; -fx-background-color: linear-gradient(to bottom right, #667eea, #764ba2);">
+   
+   <!-- Encabezado -->
+   <Label text="🚀 CosmoTravel - Gestión de Alimentos" 
+          style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+   
+   <Label text="Inventario de Alimentos para Misión Espacial - 2025" 
+          style="-fx-text-fill: #e0e0e0; -fx-font-size: 14px;"/>
+   
+   <!-- Contenido principal -->
+   <HBox spacing="20" alignment="TOP_CENTER">
+      
+      <!-- Panel de formulario -->
+      <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);" prefWidth="350">
+         <Label text="📋 Información del Alimento" 
+                style="-fx-text-fill: #333; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+         
+         <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+               <ColumnConstraints prefWidth="120"/>
+               <ColumnConstraints prefWidth="200"/>
+            </columnConstraints>
+            
+            <Label text="🔢 ID Producto:" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                   style="-fx-text-fill: #555; -fx-font-weight: bold;"/>
+            <TextField fx:id="txtId" GridPane.rowIndex="0" GridPane.columnIndex="1" 
+                      promptText="Ej: AL001" style="-fx-background-radius: 5;"/>
+            
+            <Label text="🍎 Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0" 
+                   style="-fx-text-fill: #555; -fx-font-weight: bold;"/>
+            <TextField fx:id="txtNombre" GridPane.rowIndex="1" GridPane.columnIndex="1" 
+                      promptText="Ej: Galletas espaciales" style="-fx-background-radius: 5;"/>
+            
+            <Label text="📦 Cantidad:" GridPane.rowIndex="2" GridPane.columnIndex="0" 
+                   style="-fx-text-fill: #555; -fx-font-weight: bold;"/>
+            <TextField fx:id="txtCantidad" GridPane.rowIndex="2" GridPane.columnIndex="1" 
+                      promptText="Ej: 50" style="-fx-background-radius: 5;"/>
+            
+            <Label text="📅 Caducidad:" GridPane.rowIndex="3" GridPane.columnIndex="0" 
+                   style="-fx-text-fill: #555; -fx-font-weight: bold;"/>
+            <DatePicker fx:id="dateCaducidad" GridPane.rowIndex="3" GridPane.columnIndex="1" 
+                       style="-fx-background-radius: 5;"/>
+         </GridPane>
+         
+         <!-- Botones principales -->
+         <HBox spacing="10" style="-fx-alignment: center;">
+            <Button text="💾 Guardar" onAction="#guardarAlimento" 
+                   style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 15;"/>
+            <Button text="✏️ Modificar" onAction="#modificarAlimento" 
+                   style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 15;"/>
+            <Button text="🗑️ Eliminar" onAction="#eliminarAlimento" 
+                   style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 15;"/>
+         </HBox>
+         
+         <!-- Botones de serialización -->
+         <HBox spacing="10" style="-fx-alignment: center;">
+            <Button text="💾 Serializar" onAction="#serializar" 
+                   style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 15;"/>
+            <Button text="📂 Deserializar" onAction="#deserializar" 
+                   style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 15;"/>
+         </HBox>
+         
+         <!-- Mensaje -->
+         <Label fx:id="lblMensaje" style="-fx-alignment: center; -fx-font-weight: bold; -fx-padding: 10;"/>
+      </VBox>
+      
+      <!-- Panel de tabla -->
+      <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);" prefWidth="500">
+         <Label text="📊 Inventario de Alimentos" 
+                style="-fx-text-fill: #333; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+         
+         <TableView fx:id="tablaAlimentos" onMouseClicked="#mostrarSeleccion" prefHeight="300">
+            <columns>
+               <TableColumn fx:id="colId" text="🔢 ID" prefWidth="80"/>
+               <TableColumn fx:id="colNombre" text="🍎 Nombre" prefWidth="150"/>
+               <TableColumn fx:id="colCantidad" text="📦 Cantidad" prefWidth="80"/>
+               <TableColumn fx:id="colCaducidad" text="📅 Caducidad" prefWidth="120"/>
+            </columns>
+         </TableView>
+      </VBox>
+   </HBox>
+</VBox>
