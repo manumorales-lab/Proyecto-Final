@@ -1,0 +1,49 @@
+PROYECTO JAVA FX
+================
+
+INFORMACIÓN DEL PROYECTO
+------------------------
+Grupo: co.edu.poli
+Artifact: Proyecto
+Versión: 1.0.0
+Empaquetado: jar
+
+CONFIGURACIÓN
+-------------
+Codificación: UTF-8
+Java Version: 17
+JavaFX Version: 17.0.8
+
+DEPENDENCIAS
+------------
+- JavaFX Controls
+- JavaFX FXML
+
+CLASE PRINCIPAL
+---------------
+Paquete: co.edu.poli.Proyecto.vista
+Clase: App
+
+DESCRIPCIÓN
+-----------
+Este es un proyecto Java que utiliza JavaFX para la interfaz gráfica.
+La aplicación está configurada con Maven y usa Java 17.
+
+La clase principal App extiende de javafx.application.Application
+y es el punto de entrada de la aplicación JavaFX.
+
+PLUGINS MAVEN
+-------------
+- maven-compiler-plugin 3.11.0
+- javafx-maven-plugin 0.0.8
+
+ESTRUCTURA ESPERADA
+-------------------
+src/main/java/co/edu/poli/Proyecto/vista/App.java
+
+FUNCIONALIDAD
+-------------
+- Interfaz gráfica con JavaFX
+- Soporte para FXML
+- Compilación con Java 17
+- Gestión de dependencias con Maven
